@@ -1,0 +1,82 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.auth{
+    @include m.contenedor-md;
+    padding: 1rem;
+    border: 1px solid v.$amarilloLimon;
+
+    &__heading{
+        text-align: center;
+    }
+
+    &__texto{
+        text-align: center;
+    }
+}
+
+.formulario{
+
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet{
+        flex-direction: row;
+    }
+
+    &__image{
+        width: 100%;
+        
+        @include m.tablet{
+            width: 50%;
+        }
+
+        img{
+            border-radius: 2rem;
+        }
+    }
+
+    &__campos{
+        padding: 2rem;
+        width: 100%;
+
+        @include m.tablet{
+            width: 50%;
+        }
+
+    }
+   
+    &__campo{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    &__label{
+        width: 12rem;
+        font-weight: bold;
+    }
+
+    &__input{
+        width: 100%;
+        padding: 1rem;
+    }
+
+    &__submit{
+        margin-top: 1rem;
+        padding: 1.5rem;
+        width: 100%;
+
+        @include m.tablet{
+            width: auto;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        @include m.boton(v.$azul,v.$blanco);
+    }
+
+  
+}

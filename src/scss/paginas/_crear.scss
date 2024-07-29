@@ -1,0 +1,14 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.main{
+    @include m.contenedor-md;
+
+    padding: 1rem;
+    border: 1px solid v.$amarilloLimon;
+
+    &__titulo{
+        text-align: center;
+        text-transform: uppercase;
+    }    
+}

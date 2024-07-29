@@ -1,0 +1,76 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.form{
+    display: flex;
+    flex-direction: column;
+
+    &__fieldset{
+        margin-top: 3rem;
+        padding: 1rem;     
+    }
+
+    &__legend{
+        font-size: 2.5rem;
+    }
+
+    &__campo{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;        
+
+        @include m.tablet{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__label{
+        width: 100%;
+        margin-bottom: 1rem;
+        @include m.tablet{
+            width: 20rem;
+            margin-bottom: 0rem;
+        }
+    }
+
+    &__input,
+    &__select{
+        width: 100%;
+    }
+
+    &__acciones{
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include m.tablet{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0rem;
+        }        
+    }
+
+    &__submit{
+        margin: 1rem 0rem;
+        @include m.boton(v.$azul,v.$blanco);
+        border-radius: 1rem;
+        width: auto;
+
+        &-modificar{
+            width: 100%;
+            text-transform: uppercase;
+        }
+    }
+
+    &__volver{
+        @include m.boton(v.$verdeOscuro,v.$blanco);
+        border-radius: 1rem;
+        width: auto;
+    }
+
+    
+}

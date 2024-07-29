@@ -1,0 +1,16 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.administracion {
+  &__enlaces {
+    @include m.boton(v.$verdeOscuro, v.$blanco);
+    width: 20rem;
+    border-radius: 1rem;
+    align-self: center;
+    margin-bottom: 1rem;
+
+    @include m.tablet {
+      margin-bottom: 0rem;
+    }
+  }
+}

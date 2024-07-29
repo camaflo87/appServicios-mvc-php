@@ -1,0 +1,303 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.servicios {
+  @include m.contenedor;
+  padding: 1rem;
+  border: 1px solid v.$amarilloLimon;
+
+  &__titulo {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  &__navegacion {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  @include m.desktop {
+    &__navegacion {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__link {
+    @include m.boton(v.$azul, v.$blanco);
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+
+    &-seguimiento,
+    &-asignar,
+    &-funcionario,
+    &-historico {
+      @include m.boton(v.$blanco, v.$negro);
+      width: auto;
+      border: 1px solid v.$negro;
+      -webkit-box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.75);
+    }
+  }
+
+  @include m.tablet {
+    &__link {
+      width: auto;
+    }
+  }
+
+  &__link-volver {
+    @include m.boton(v.$verdeOscuro, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+  }
+
+  &__retorno {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__consulta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include m.desktop {
+    &__consulta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &-agrupar {
+        justify-content: space-evenly;
+      }
+
+      &-solo {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  &__grupo {
+    margin-bottom: 1rem;
+  }
+
+  &__opc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    // border: 1px solid v.$azulCeleste;
+    margin: 1.5rem 1rem;
+  }
+
+  @include m.tablet {
+    &__opc {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      column-gap: 2rem;
+      align-items: center;
+    }
+  }
+
+  &__bloque {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    align-items: center;
+    padding: 1rem;
+
+    label {
+      width: 18rem;
+    }
+  }
+
+  @include m.tablet {
+    &__bloque {
+      margin-bottom: 0rem;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+      label {
+        width: auto;
+      }
+    }
+  }
+
+  // Diseño de la tabla
+  &__table {
+    width: 100%;
+    border: 1px solid v.$grisClaro;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    table-layout: fixed;
+  }
+
+  &__caption {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 1rem 0rem;
+  }
+
+  tr {
+    background-color: v.$azulCeleste;
+  }
+
+  &__body tr {
+    margin-bottom: 10px;
+    border-bottom: 5px solid v.$grisClaro;
+    display: block;
+  }
+
+  &__listado:hover {
+    background-color: rgba($color: v.$azulCeleste, $alpha: 0.7);
+  }
+
+  &__listado td:hover {
+    background-color: rgba($color: v.$azul, $alpha: 0.8);
+    color: v.$blanco;
+  }
+
+  // Convertir tabla a filas
+  &__encabezado {
+    display: none;
+  }
+
+  &__listado td {
+    display: block;
+    border: 0.5px solid rgba($color: v.$grisClaro, $alpha: 0.2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+
+    &::before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  @include m.desktop {
+    .funcionario,
+    .servicio,
+    .observaciones {
+      width: 20%;
+    }
+
+    th {
+      font-size: 1.3rem;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+      display: table-cell;
+      vertical-align: inherit;
+    }
+
+    &__encabezado {
+      text-align: center;
+      text-transform: uppercase;
+      background-color: v.$azul;
+      color: v.$blanco;
+    }
+
+    &__body tr {
+      border-bottom: none;
+      display: table-row;
+      width: 100%;
+    }
+
+    &__listado td {
+      display: table-cell;
+      text-align: center;
+      font-size: 1.3rem;
+      border: none;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
+  &__acciones {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__modificar {
+    @include m.boton(v.$azul, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  &__eliminar {
+    @include m.boton(v.$rojo, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  &__seleccion {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+
+  &__asignar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    column-gap: 1rem;
+
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__subtitulo {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.8rem;
+  }
+
+  &__campo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__label {
+    width: 18rem;
+  }
+
+  &__opciones {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__asignacion {
+    @include m.contenedor-sm;
+  }
+}

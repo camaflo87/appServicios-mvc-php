@@ -1,0 +1,218 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.formaciones {
+  @include m.contenedor;
+  padding: 1rem;
+  border: 1px solid v.$amarilloLimon;
+
+  &__titulo {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  &__enlace {
+    @include m.boton(v.$azul, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include m.tablet {
+      flex-direction: column;
+      // justify-content: space-around;
+      align-items: center;
+    }
+
+    @include m.desktop {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+
+  &__listas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__grupo {
+    display: none;
+
+    @include m.tablet {
+      display: flex;
+    }
+
+    &--label {
+      width: 7rem;
+    }
+
+    &--lista {
+      width: 23.5rem;
+    }
+  }
+
+  &__opc {
+    display: none;
+    margin: 1rem 0 1rem 0;
+
+    @include m.tablet {
+      display: flex;
+    }
+
+    @include m.desktop {
+      margin: 0rem;
+    }
+
+    &--label {
+      width: 7rem;
+    }
+
+    &--lista {
+      width: 23.5rem;
+    }
+  }
+
+  &__navegacion {
+    display: none;
+
+    &--alinear {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include m.tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      column-gap: 1rem;
+    }
+  }
+
+  &__btn {
+    @include m.boton(v.$azul, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+  }
+
+  &__mostrar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__mensaje {
+    font-weight: bold;
+  }
+
+  &__hamburger {
+    @include m.tablet {
+      display: none;
+    }
+  }
+
+  // Inicia el diseño de los registros a mostrar
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 1rem;
+
+    @include m.desktop {
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__funcionario,
+  &__novedades {
+    border: 1px dotted black;
+    padding: 1.1rem;
+    font-size: 1.3rem;
+    @include m.tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__subtitulo {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__funcionario {
+    width: 100%;
+    @include m.desktop {
+      width: 40%;
+    }
+  }
+
+  &__novedades {
+    width: 100%;
+    margin-bottom: 2rem;
+    span {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    @include m.desktop {
+      width: 40%;
+      margin-bottom: 0rem;
+    }
+  }
+
+  &__registro {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__novedad {
+    text-transform: uppercase;
+    width: 15rem;
+    text-align: center;
+    background-color: aquamarine;
+    border-radius: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__bloque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__nombre {
+    width: 70%;
+  }
+
+  &__label {
+    width: 14rem;
+    font-weight: bold;
+  }
+
+  &__cant {
+    width: 5rem;
+    text-align: center;
+  }
+
+  &__numerico {
+    width: 10rem;
+    text-align: center;
+  }
+}

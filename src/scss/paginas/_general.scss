@@ -1,0 +1,82 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.formaciones {
+  &__generales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1rem;
+  }
+
+  &__btnNavegacion {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    @include m.tablet {
+      flex-direction: row;
+    }
+
+    a {
+      margin: 0rem;
+    }
+  }
+
+  &__allSeccional {
+    @include m.boton(v.$azul, v.$blanco);
+    width: auto;
+    border-radius: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__bloques {
+    margin-top: 1rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__grupos {
+    width: 100%;
+    background-color: v.$azulCeleste;
+  }
+
+  &__tituloGrupo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: v.$blanco;
+  }
+
+  &__general {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__subtitulos {
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 0rem;
+    padding: 1rem;
+    background-color: lighten(v.$grisClaro, $amount: 35);
+    text-align: center;
+  }
+
+  &__subBloques {
+    width: 100%;
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    label {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+}

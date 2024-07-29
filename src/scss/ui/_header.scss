@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header{
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: 1rem;
+
+    @include m.contenedor;
+
+    @include m.tablet{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 1rem; 
+    }
+
+    &__navegacion{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    &__logout{
+        @include m.boton(v.$azul,v.$blanco);
+        border-radius: 1rem;
+    }
+
+    span{
+        font-weight: bold;
+    }
+}
