@@ -332,7 +332,6 @@ function cargarDom() {
 
   modal.forEach((mod) => {
     mod.addEventListener("click", (e) => {
-      console.log(e);
       let id = e.target.attributes.value.value;
       generarModal(id);
     });
@@ -347,16 +346,15 @@ function cargarModal() {
 
     let funcionario = document.querySelector("#funcionario");
     let novedades = document.querySelector("#situacion");
+    novedades.innerHTML = "";
     let observacion = document.querySelector("#observacion");
 
-    console.log(resultado);
     funcionario.value = `${resultado[0].grado} ${resultado[0].nombre}`;
     funcionario.setAttribute(
       "data-id-funcionario",
       resultado[0].id_funcionario
     );
 
-    console.log(listNov);
     listNov.forEach((novedad) => {
       const option = document.createElement("OPTION");
       option.textContent = novedad.novedad;
