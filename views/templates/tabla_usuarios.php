@@ -65,6 +65,6 @@
 
             <?php } ?>
         </tr>
-        <tr class="espacio"></tr>
+        <!-- <tr class="espacio"></tr> -->
     <?php } ?> <!-- Cierre ciclo -->
 </tbody>

@@ -2390,7 +2390,12 @@ h3 {
 }
 @media (min-width: 1024px) {
   .formaciones__funcionario {
+    overflow: scroll;
+    scrollbar-color: #FFFFFF #0B0B3B;
+    scrollbar-width: auto;
+    overflow-x: hidden;
     width: 40%;
+    height: 70vh;
   }
 }
 .formaciones__novedades {

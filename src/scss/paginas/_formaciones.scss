@@ -154,7 +154,12 @@
   &__funcionario {
     width: 100%;
     @include m.desktop {
+      overflow: scroll;
+      scrollbar-color: v.$blanco v.$azul;
+      scrollbar-width: auto;
+      overflow-x: hidden;
       width: 40%;
+      height: 70vh;
     }
   }
 
